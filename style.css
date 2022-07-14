@@ -60,6 +60,31 @@ section{
     margin: 5px;
     background-color: #898580;
     border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.innerScreen{
+    margin: 5px;
+    margin-right: 10px;
+    height: 40px;
+    width: 310px;
+    color: #E1EFEB;
+    font-size: 26px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+    justify-content: flex-end;
+}
+
+#result{
+    height: 60px;
+    font-size: 40px;
+    color: #a6f1dc;
+    justify-content: center;
 }
 
 .buttons{
@@ -83,7 +108,7 @@ button{
     margin: 5px;
 }
 
-.result{
+.resultButton{
     width: 160px;
     border-radius: 50px;
 }
@@ -100,7 +125,7 @@ button{
     background-color: #6ACCCD;
 }
 
-.result:hover{
+.resultButton:hover{
     background-color: #A3B358;
 }
 
