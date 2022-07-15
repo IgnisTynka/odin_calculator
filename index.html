@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <title>Calculator</title>
 </head>
 <body>
@@ -16,30 +17,30 @@
     <section>
         <div class="calculator">
             <div class="screen">
-                <div class="innerScreen" id="calculations">20 + 70</div>
+                <div class="innerScreen" id="calculations"></div>
                 <div class="innerScreen" id="result">90</div>
             </div>
             <div class="buttons">
                 <!-- first line -->
                 <button class="clear" id="allclear">AC</button>
                 <button class="clear" id="delete">C</button>
-                <button class="operators" id="procent">%</button>
-                <button class="operators" id="division">&#247</button>
+                <button class="procent" id="procent" value="%">%</button>
+                <button class="operators" id="division" value="/">&#247</button>
                 <!-- second line -->
                 <button class="numbers" value="7" id="seven">7</button>
                 <button class="numbers" value="8" id="eight">8</button>
                 <button class="numbers" value="9" id="nine">9</button>
-                <button class="operators" id="multiplication">&#215</button>
+                <button class="operators" id="multiplication" value="*">&#215</button>
                 <!-- third line -->
                 <button class="numbers" value="4" id="four">4</button>
                 <button class="numbers" value="5" id="five">5</button>
                 <button class="numbers" value="6" id="six">6</button>
-                <button class="operators" id="minus">-</button>
+                <button class="operators" id="minus" value="-">-</button>
                 <!-- fourth line -->
                 <button class="numbers" value="1" id="one">1</button>
                 <button class="numbers" value="2" id="two">2</button>
                 <button class="numbers" value="3" id="three">3</button>
-                <button class="operators" id="plus">+</button>
+                <button class="operators" id="plus" value="+">+</button>
                 <!-- fifth line -->
                 <button class="numbers" value="0" id="zero">0</button>
                 <button class="decimal" id="decimal">.</button>
