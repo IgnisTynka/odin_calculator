@@ -17,6 +17,15 @@ numbers.forEach(number => {
     })
 });
 
+decimal.addEventListener('click', () => {
+    if(currentNumber == ''){
+        currentNumber = '0.'
+        operationDiv.innerText = currentNumber;
+    }else{
+        operationDiv.innerText += '.';
+    }
+})
+
 operators.forEach(operator => {
     operator.addEventListener('click', () => {
         operationDiv.innerText += operator.innerText;
