@@ -20,7 +20,7 @@ numbers.forEach(number => {
 decimal.addEventListener('click', () => {
     if(currentNumber == ''){
         currentNumber = '0.'
-        operationDiv.innerText = currentNumber;
+        operationDiv.innerText = currentNumbert;
     }else{
         operationDiv.innerText += '.';
     }
