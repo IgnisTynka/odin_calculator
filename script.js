@@ -1,16 +1,17 @@
-let operation = document.getElementById('calculations');
+let operationDiv = document.getElementById('calculations');
+let equalDiv = document.getElementById('result')
 
 const numbers = document.querySelectorAll('.numbers');
 let operators = document.querySelectorAll('.operators')
 
 let currentNumber = '';
 let firstNumber = 0;
-let secondNumber = 0;
 let selectedOperator = '';
 
 numbers.forEach(number => {
     number.addEventListener('click', () => {
-        operation.innerText += number.value;
+        equalDiv.innerText = '';
+        operationDiv.innerText += number.value;
         currentNumber += number.value;
         console.log(currentNumber)
     })
@@ -18,7 +19,7 @@ numbers.forEach(number => {
 
 operators.forEach(operator => {
     operator.addEventListener('click', () => {
-        operation.innerText += operator.innerText;
+        operationDiv.innerText += operator.innerText;
         selectedOperator = operator.value;
         firstNumber = currentNumber;
         currentNumber = '';
@@ -26,8 +27,19 @@ operators.forEach(operator => {
 });
 
 equal.addEventListener('click', () => {
-    console.log(firstNumber);
-    console.log(selectedOperator);
-    console.log(currentNumber)
+    let result = 0;
+    if(selectedOperator == '+'){
+        result = Number(firstNumber) + Number(currentNumber);
+        equalDiv.innerText = result;
+    }else if(selectedOperator == '-'){
+        result = Number(firstNumber) - Number(currentNumber);
+        equalDiv.innerText = result;
+    }else if(selectedOperator == '*'){
+        result = Number(firstNumber) * Number(currentNumber);
+        equalDiv.innerText = result;
+    }else if(selectedOperator == '/'){
+        result = Number(firstNumber) / Number(currentNumber);
+        equalDiv.innerText = result;
+    }
 })
 
