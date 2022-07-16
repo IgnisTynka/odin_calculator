@@ -17,11 +17,12 @@ numbers.forEach(number => {
     })
 });
 
-decimal.addEventListener('click', () => {
+decimal.addEventListener('click', () => {    
     if(currentNumber == ''){
         currentNumber = '0.'
         operationDiv.innerText = currentNumbert;
     }else{
+        currentNumber += '.'
         operationDiv.innerText += '.';
     }
 })
@@ -52,3 +53,13 @@ equal.addEventListener('click', () => {
     }
 })
 
+allclear.addEventListener('click', () => {
+    let currentNumber = '';
+    let firstNumber = 0;
+    let selectedOperator = '';
+    operationDiv.innerText = '';
+    equalDiv.innerText = '';
+})
+
+oneclear.addEventListener('click', () => {
+})
