@@ -4,69 +4,65 @@ let equalDiv = document.getElementById('result')
 const numbers = document.querySelectorAll('.numbers');
 let operators = document.querySelectorAll('.operators')
 
-// let currentNumber = '';
-// let firstNumber = 0;
-// let selectedOperator = '';
-
 numbers.forEach(number => {
     number.addEventListener('click', () => {
         equalDiv.innerText = '';
         operationDiv.innerText += number.value;
-        // currentNumber += number.value;
+        let firstPart = operationDiv.innerText;
+        operators.forEach(operator => {
+            operator.addEventListener('click', () => {
+                operationDiv.innerText = firstPart + operator.value;
+                selectedOperator = operator.value;
+                decimal.disabled = false;
+            })
+        });
     })
 });
 
 decimal.addEventListener('click', () => {    
     if(operationDiv.innerText == ''){
-        // currentNumber = '0.'
-        operationDiv.innerText = '0.';
+        operationDiv.innerText += '0.';
     }else{
-        // currentNumber += '.'
         operationDiv.innerText += '.';
     }
+    decimal.disabled = true;
 })
-
-operators.forEach(operator => {
-    operator.addEventListener('click', () => {
-        operationDiv.innerText += operator.value;
-        selectedOperator = operator.value;
-        // firstNumber = currentNumber;
-        // currentNumber = '';
-    })
-});
 
 equal.addEventListener('click', () => {
     let result = 0;
     let numbersArray = []; 
     if(selectedOperator == '+'){
         numbersArray = operationDiv.innerText.split('+');
-        result = Number(numbersArray[0]) + Number(numbersArray[1]);
-        equalDiv.innerText = result;
+        result = Number(numbersArray[0]) + Number(numbersArray[1]); 
     }else if(selectedOperator == '-'){
         numbersArray = operationDiv.innerText.split('-');
         result = Number(numbersArray[0]) - Number(numbersArray[1]);
-        equalDiv.innerText = result;
     }else if(selectedOperator == '*'){
         numbersArray = operationDiv.innerText.split('*');
-        console.log(numbersArray);
         result = Number(numbersArray[0]) * Number(numbersArray[1]);
-        equalDiv.innerText = result;
     }else if(selectedOperator == '/'){
         numbersArray = operationDiv.innerText.split('/');
-        console.log(numbersArray);
         result = Number(numbersArray[0]) / Number(numbersArray[1]);
-        equalDiv.innerText = result;
     }
+    equalDiv.innerText = result;
+    operators.forEach(operator => {
+        operator.addEventListener('click', () => {
+            operationDiv.innerText = result + operator.value;
+            selectedOperator = operator.value;
+        })
+    });
+    decimal.disabled = false;
 })
 
 allclear.addEventListener('click', () => {
-    // currentNumber = '';
-    // firstNumber = 0;
-    // selectedOperator = '';
     operationDiv.innerText = '';
     equalDiv.innerText = '';
+    decimal.disabled = false;
 })
 
 oneclear.addEventListener('click', () => {
-    operationDiv.innerText = operationDiv.innerText.slice(0, -1)  
+    if(operationDiv.innerText.slice(-1) == '.'){
+        decimal.disabled = false;
+    } 
+    operationDiv.innerText = operationDiv.innerText.slice(0, -1) 
 })
