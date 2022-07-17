@@ -40,7 +40,7 @@ equal.addEventListener('click', () => {
     let result = 0;
     let numbersArray = [];
     let splitOperators = new RegExp()
-    numbersArray = operationDiv.innerText.split(/[{+}\-{*}{/}{%}]/);
+    numbersArray = operationDiv.innerText.split(/[\+\-\*\/\%]/);
     console.log(numbersArray);
     for(i = 0; i < operatorNumber; i++){
         if(selectedOperator[i] == '+'){
@@ -87,6 +87,9 @@ oneclear.addEventListener('click', () => {
         decimal.disabled = false;
     }else if(operatorsSymbol.includes(operationDiv.innerText.slice(-1))){
         selectedOperator.pop();
+    }else if(equalDiv.innerText != ''){
+        operationDiv.innerText = '';
+        equalDiv.innerText = '';
     }
     operationDiv.innerText = operationDiv.innerText.slice(0, -1) 
 })
