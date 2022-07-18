@@ -59,6 +59,7 @@ equal.addEventListener('click', () => {
         numbersArray[0] = result;
 
     }
+    result = result.toFixed(9);
     equalDiv.innerText = result;
     selectedOperator = [];
     operatorNumber = 0;
